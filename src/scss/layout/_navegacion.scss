@@ -1,0 +1,56 @@
+.barra{
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ padding-top: 3rem;
+
+ @include tablet{
+    flex-direction: row;
+    justify-content: space-between;
+ }
+}
+
+.navegacion{
+    //display: none; El elemento se ocultará y la página se mostrará como si el elemento no lo estuviera. allí:displaynone
+    //ANIMACION
+    visibility: hidden;// El elemento estará oculto, pero seguirá afectando al diseño:
+    opacity: 0;
+    transition: visibility .3s ease-in-out,opacity 0.5s linear;
+
+    @include tablet{
+        display: flex;
+        align-items: center;
+        opacity: 1;
+        visibility: visible;
+    }
+    a{
+        color: $blanco;
+        text-decoration: none;
+        font-size: 1.9rem;
+        display: block;
+        text-align: center;
+
+        @include tablet{
+            margin-right: 2rem;
+            &:last-of-type{//QUITA EL MARGEN AL ULTIMO ELEMENTO
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+
+/**Menu de Hamburguesa**/
+.mobile-menu{
+    @include tablet{
+        display: none;
+    }
+    img{
+        width: 5rem;
+    }
+}
+
+.mostrar{
+    visibility: visible;
+    opacity: 1;
+}
